@@ -14,7 +14,11 @@ function App() {
   return (
     <>
       <header>
-        <Navbar className="bg-dark justify-content-between" variant="dark">
+        <Navbar
+          className="bg-dark justify-content-between"
+          variant="dark"
+          sticky="top"
+        >
           <Container>
             <Navbar.Brand>BlockQuiz</Navbar.Brand>
             <ConnectButton />
@@ -24,23 +28,24 @@ function App() {
       <main>
         <Container>
           <Row className="mt-5">
-            <Col>
-              {account ? (
-                <>
+            {account ? (
+              <>
+                <Col sm="12" md="5"></Col>
+                <Col sm="12" md="7">
                   <QuestionsList />
-                </>
-              ) : (
-                <>
-                  <Alert variant="info" className="text-center">
-                    <p className="m-0">
-                      Welcome to BlockQuiz! A platform where users can earn
-                      rewards in NFTs by completing questions.
-                    </p>
-                    <p className="m-0">Connect your wallet to start.</p>
-                  </Alert>
-                </>
-              )}
-            </Col>
+                </Col>
+              </>
+            ) : (
+              <Col>
+                <Alert variant="info" className="text-center">
+                  <p className="m-0">
+                    Welcome to BlockQuiz! A platform where users can earn
+                    rewards in NFTs by completing questions.
+                  </p>
+                  <p className="m-0">Connect your wallet to start.</p>
+                </Alert>
+              </Col>
+            )}
           </Row>
         </Container>
       </main>
